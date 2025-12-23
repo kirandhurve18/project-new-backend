@@ -7,5 +7,11 @@ stages{
       git branch: 'main', credentialsId: 'git-id', url: 'https://github.com/kirandhurve18/project-new-backend.git'      
        }
     }
+
+  stage("build"){
+    steps{
+      
+    }
+  }
   }
 }
