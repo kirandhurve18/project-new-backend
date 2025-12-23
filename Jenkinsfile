@@ -3,7 +3,7 @@ pipeline{
 
 stages{
   stage("pull"){
-    stage{
+    steps{
       git branch: 'main', credentialsId: 'git-id', url: 'https://github.com/kirandhurve18/project-new-backend.git'      
        }
     }
