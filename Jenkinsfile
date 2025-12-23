@@ -10,8 +10,10 @@ stages{
 
   stage("build"){
     steps{
+      sh '''
       docker build -t backendimage .
       docker run -d -p 3006:3006 --name backendcontainer backendimage 
+      '''
           }
        }
     }
