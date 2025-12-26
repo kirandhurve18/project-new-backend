@@ -8,13 +8,17 @@ stages{
        }
     }
 
-  stage("build"){
-    steps{
-      sh '''
-      docker build -t backendimage .
-      docker run -d -p 3006:3006 --name backendcontainer backendimage 
-      '''
-          }
-       }
+  stage('Build') {
+            steps { 
+                withCredentials([string(credentialsId: 'dockerhub-token', variable: 'DOCKERHUB_TOKEN')]) {
+                sh '''
+                docker build -t myimage:latest .
+                echo "$DOCKERHUB_TOKEN" | docker login -u "kirand18" --password-stdin
+                docker tag myimage:latest kirand18/dockerrepo:latest
+                docker push kirand18/dockerrepo:latest
+                '''
+                }                
+            }
+        }   
     }
 }
