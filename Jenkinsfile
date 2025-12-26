@@ -19,6 +19,40 @@ stages{
                 '''
                 }                
             }
-        }   
+  }
+
+  stage('Deploy') {
+            steps {           
+                withCredentials([file(credentialsId: 'gcp-key', variable: 'kubernet-credentail')]) {
+                sh '''
+                gcloud auth activate-service-account --key-file=$kubernet-credentail
+                gcloud config set project sigma-icon-480904-m9
+                gcloud container clusters get-credentials cluster --zone us-central1-a --project sigma-icon-480904-m9
+                kubectl apply -f K8s/deployment.yaml
+                kubectl apply -f K8s/service.yaml
+                '''
+        }
+    }
+}
+                sh '''
+                gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS
+                gcloud config set project sonorous-guide-471513-h8
+                gcloud container clusters get-credentials cluster --zone us-central1-a --project sonorous-guide-471513-h8
+                kubectl apply -f K8s/deployment.yaml
+                kubectl apply -f K8s/service.yaml
+                '''
+        }
+    }
+}
+                sh '''
+                gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS
+                gcloud config set project sonorous-guide-471513-h8
+                gcloud container clusters get-credentials cluster --zone us-central1-a --project sonorous-guide-471513-h8
+                kubectl apply -f K8s/deployment.yaml
+                kubectl apply -f K8s/service.yaml
+                '''
+        }
+    }
+}
     }
 }
