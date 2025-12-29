@@ -25,8 +25,8 @@ stages{
             steps {           
                 withCredentials([file(credentialsId: 'gcp-key', variable: 'KUBE_CRED')]) {
                 sh '''
-                kubectl apply -f K8s/deployment.yaml
-                kubectl apply -f K8s/service.yaml
+                kubectl apply -f K8/deployment.yaml
+                kubectl apply -f K8/service.yaml
                 '''
         }
     }
