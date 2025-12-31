@@ -13,7 +13,7 @@ stages{
                 withCredentials([string(credentialsId: 'Dockerhub_token', variable: 'docker_id')]) {
                 sh '''
                 docker build -t myimage:latest .
-                echo "$dockertoken" | docker login -u "kirand18" --password-stdin
+                echo "$docker_id" | docker login -u "kirand18" --password-stdin
                 docker tag myimage:latest kirand18/project-repository
                 docker push kirand18/project-repository
                 '''
