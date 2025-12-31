@@ -10,7 +10,7 @@ stages{
 
   stage('Build') {
             steps { 
-                withCredentials([string(credentialsId: 'DOCKERHUB-TOKEN', variable: 'dockertoken')]) {
+                withCredentials([string(credentialsId: 'Dockerhub_token', variable: 'dockerhub')]) {
                 sh '''
                 docker build -t myimage:latest .
                 echo "$dockertoken" | docker login -u "kirand18" --password-stdin
