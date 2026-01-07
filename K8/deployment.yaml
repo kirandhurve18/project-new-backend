@@ -19,4 +19,4 @@ spec:
         - containerPort: 3005
         env:
         - name: MONGO_URI
-          value: "mongodb+srv://kirand1895_db_user:kiran1234@cluster-mongo.fqlnbfx.mongodb.net/?appName=Cluster-mongo/mongodb"
+          value: "mongodb+srv://kirand1895_db_user:kiran1234@cluster-mongo.fqlnbfx.mongodb.net/mongodb"
