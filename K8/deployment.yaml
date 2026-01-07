@@ -16,4 +16,4 @@ spec:
       - name: backend
         image: kirand18/project-repository
         ports:
-        - containerPort: 3006
+        - containerPort: 3005
