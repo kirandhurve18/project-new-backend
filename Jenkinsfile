@@ -23,7 +23,7 @@ stages{
 
   stage('Deploy') {
             steps {           
-                withCredentials([file(credentialsId: 'gcp-key', variable: 'KUBE_CRED')]) {
+                withCredentials([file(credentialsId: 'gcp-key', variable: 'gcpkey')]) {
                 sh '''
                 kubectl apply -f K8/deployment.yaml
                 kubectl apply -f K8/service.yaml
