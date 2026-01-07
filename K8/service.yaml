@@ -7,5 +7,5 @@ spec:
   selector:
     app: backend
   ports:
-  - port: 3006
-    targetPort: 3006
+  - port: 3005
+    targetPort: 3005
