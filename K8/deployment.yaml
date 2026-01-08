@@ -16,7 +16,7 @@ spec:
       - name: backend
         image: kirand18/project-repository
         ports:
-        - containerPort: 3005
+        - containerPort: 3005  # container Port 
         env:
         - name: MONGO_URI
           value: "mongodb+srv://kirand1895_db_user:kiran1234@self-cluster-project.wum02zd.mongodb.net/hrms-database?retryWrites=true&w=majority"
