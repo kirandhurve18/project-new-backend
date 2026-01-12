@@ -27,7 +27,7 @@ pipeline{
 
   stage('Deploy') {
             steps {           
-                withCredentials([file(credentialsId: 'gcp-key', variable: 'gcpkey')]) {
+                withCredentials([file(credentialsId: 'gcp-key', variable: 'gcp-key')]) {
                 sh '''
                 gcloud auth activate-service-account --key-file=$gcpkey
                 gcloud config set project sigma-icon-480904-m9
