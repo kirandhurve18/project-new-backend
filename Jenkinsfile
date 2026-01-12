@@ -27,9 +27,9 @@ pipeline{
 
   stage('Deploy') {
             steps {           
-                withCredentials([file(credentialsId: 'gcp-key', variable: 'gcp-key')]) {
+                withCredentials([file(credentialsId: 'gcp-key', variable: 'gcp_key')]) {
                 sh '''
-                gcloud auth activate-service-account --key-file=$gcp-key
+                gcloud auth activate-service-account --key-file=$gcp_key
                 gcloud config set project sigma-icon-480904-m9
                 gcloud container clusters get-credentials cluster-1 --zone us-central1-a --project sigma-icon-480904-m9
                 kubectl apply -f K8/deployment.yaml
