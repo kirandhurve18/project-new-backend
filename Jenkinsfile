@@ -8,7 +8,7 @@ pipeline{
   stages{
     stage("pull"){
       steps{
-        git branch: 'main', credentialsId: 'a2887c96-9ca5-4a7a-8f62-709d033369af', url: 'https://github.com/kirandhurve18/project-new-backend.git'
+       git branch: 'dev ', credentialsId: 'a2887c96-9ca5-4a7a-8f62-709d033369af', url: 'https://github.com/kirandhurve18/project-new-backend.git'
          }
       }
 
