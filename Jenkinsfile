@@ -32,7 +32,7 @@ pipeline{
                 gcloud auth activate-service-account --key-file=$gcp_key
                 gcloud config set project sigma-icon-480904-m9
                 gcloud container clusters get-credentials cluster-1 --zone us-central1-a --project sigma-icon-480904-m9
-                kubectl apply -f K8/deployment.yaml
+                kubectl apply -f K8/deployment.yaml -n dev 
                 kubectl apply -f K8/service.yaml
                 '''
         }
