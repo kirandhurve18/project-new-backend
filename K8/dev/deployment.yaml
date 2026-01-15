@@ -1,1 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: dev  # insure that it should deploy in the dev namespace 
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: kirand18/project-repository
+        ports:
+        - containerPort: 3005  # container Port 
+        env:
+        - name: MONGO_URI
+          value: "mongodb+srv://kirand1895_db_user:kiran1234@self-cluster-project.wum02zd.mongodb.net/hrms-database?retryWrites=true&w=majority"
 
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "500m"
+            memory: "256Mi"
