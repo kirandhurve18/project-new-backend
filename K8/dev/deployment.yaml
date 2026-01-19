@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend
-  namespace: dev  # insure that it should deploy in the dev namespace 
+ # namespace: dev  # insure that it should deploy in the dev namespace 
 spec:
   replicas: 2
   selector:
