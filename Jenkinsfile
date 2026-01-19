@@ -20,6 +20,7 @@ pipeline{
                 docker build -t myimage:latest .
                 docker tag myimage:latest kirand18/project-repository
                 docker push kirand18/project-repository
+
                 '''
                 }                
             }
