@@ -1,14 +1,14 @@
 pipeline{
   agent any 
 
-  triggers {
-        pollSCM('* * * * *')  // checks every minute
-    }
+  environment {
+        NAMESPACE = "dev-ns" 
+  }
 
   stages{
     stage("pull"){
       steps{
-        git branch: 'main', credentialsId: 'a2887c96-9ca5-4a7a-8f62-709d033369af', url: 'https://github.com/kirandhurve18/project-new-backend.git'
+       git branch: 'dev', credentialsId: 'a2887c96-9ca5-4a7a-8f62-709d033369af', url: 'https://github.com/kirandhurve18/project-new-backend.git'
          }
       }
 
@@ -32,8 +32,8 @@ pipeline{
                 gcloud auth activate-service-account --key-file=$gcp_key
                 gcloud config set project sigma-icon-480904-m9
                 gcloud container clusters get-credentials cluster-1 --zone us-central1-a --project sigma-icon-480904-m9
-                kubectl apply -f K8/deployment.yaml
-                kubectl apply -f K8/service.yaml
+                kubectl apply -f K8/deployment.yaml -n ${NAMESPACE}
+                kubectl apply -f K8/service.yaml -n ${NAMESPACE}
                 '''
         }
     }
