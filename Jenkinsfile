@@ -1,10 +1,6 @@
 pipeline{
   agent any 
 
-  triggers {
-        pollSCM('* * * * *')  // checks every minute
-    }
-
   stages{
     stage("pull"){
       steps{
@@ -20,6 +16,7 @@ pipeline{
                 docker build -t myimage:latest .
                 docker tag myimage:latest kirand18/project-repository
                 docker push kirand18/project-repository
+
                 '''
                 }                
             }
