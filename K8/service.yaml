@@ -7,5 +7,7 @@ spec:
   selector:
     app: backend
   ports:
-  - port: 3006       # Public PORT 
+  - protocol: TCP
+    port: 3006       # Public PORT 
     targetPort: 3005 #container port 
+    nodePort: 31112
