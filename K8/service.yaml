@@ -8,6 +8,6 @@ spec:
     app: backend
   ports:
   - protocol: TCP
-    port: 3006       # Public PORT 
+    port: 3005      # Public PORT 
     targetPort: 3005 #container port 
     nodePort: 31112
