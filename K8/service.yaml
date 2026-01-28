@@ -10,4 +10,4 @@ spec:
   - protocol: TCP
     port: 3005      # Public PORT 
     targetPort: 3005 #container port 
-    nodePort: 31112
+    
