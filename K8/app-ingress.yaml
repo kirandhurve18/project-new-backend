@@ -27,4 +27,4 @@ spec:
           service:
             name: backend-service
             port:
-              number: 3000
+              number: 3005
