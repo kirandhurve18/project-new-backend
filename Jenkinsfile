@@ -10,9 +10,9 @@ pipeline{
 
   stage('Build') {
             steps { 
-                withCredentials([string(credentialsId: 'dockerhub', variable: 'docker_id')]) {
+                withCredentials([string(credentialsId: 'dockerhub-token', variable: 'docker_hub')]) {
                 sh '''
-                echo "$docker_id" | docker login -u "kirand18" --password-stdin
+                echo "$docker_hub" | docker login -u "kirand18" --password-stdin
                 docker build -t myimage:v1-latest .
                 docker tag myimage:v1-latest kirand18/project-repository
                 docker push kirand18/project-repository
