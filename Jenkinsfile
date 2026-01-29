@@ -30,6 +30,7 @@ pipeline{
                 gcloud container clusters get-credentials cluster-1 --zone us-central1-a --project sigma-icon-480904-m9
                 kubectl apply -f K8/deployment.yaml
                 kubectl apply -f K8/service.yaml
+                kubectl apply -f K8/app-ingress.yaml 
                 '''
         }
     }
