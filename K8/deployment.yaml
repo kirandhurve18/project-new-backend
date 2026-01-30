@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: kirand18/project-repository:${BUILD_NUMBER}
+        image: kirand18/project-repository:1
         imagePullPolicy: Always
         ports:
         - containerPort: 3005  # container Port 
