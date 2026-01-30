@@ -9,7 +9,7 @@ COPY package*.json ./
 
 # 4. Install only production dependencies
 
-RUN npm install 
+RUN npm install --production
 
 RUN npm install uuid 
 
