@@ -5,7 +5,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: app.kirandhurve.shop
+  - host: frontend.kirandhurve.shop
     http:
       paths:
       - path: /
@@ -16,7 +16,7 @@ spec:
             port:
               number: 80
 
-  - host: api.kirandhurve.shop
+  - host: backend.kirandhurve.shop
     http:
       paths:
       - path: /
