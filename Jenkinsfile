@@ -32,7 +32,6 @@ pipeline{
                 kubectl apply -f K8/deployment.yaml
                 kubectl apply -f K8/service.yaml
                 kubectl apply -f K8/app-ingress.yaml 
-                kubectl rollout status deployment/backend
                 '''
         }
     }
