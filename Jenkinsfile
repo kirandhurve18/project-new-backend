@@ -13,7 +13,7 @@ pipeline{
                 withCredentials([string(credentialsId: 'dockerhub-token', variable: 'docker_hub')]) {
                 sh '''
                 echo "$docker_hub" | docker login -u "kirand18" --password-stdin
-                docker build --no-cache -t kirand18/project-repository:${BUILD_NUMBER} .
+                docker build --no-cache -t myimage:${BUILD_NUMBER} .
                 docker tag myimage:${BUILD_NUMBER} kirand18/project-repository:${BUILD_NUMBER}
                 docker push kirand18/project-repository:${BUILD_NUMBER}
                 '''
