@@ -28,11 +28,11 @@ pipeline{
                 gcloud auth activate-service-account --key-file=$gcp_key
                 gcloud config set project sigma-icon-480904-m9
                 gcloud container clusters get-credentials cluster-1 --zone us-central1-a --project sigma-icon-480904-m9
-                kubectl set image deployment/backend backend=kirand18/project-repository:${BUILD_NUMBER}
                 kubectl rollout status deployment/backend
                 kubectl apply -f K8/deployment.yaml
                 kubectl apply -f K8/service.yaml
                 kubectl apply -f K8/app-ingress.yaml 
+                kubectl rollout status deployment/backend
                 '''
         }
     }
