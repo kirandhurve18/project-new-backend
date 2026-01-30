@@ -19,7 +19,7 @@ RUN npm install pm2 -g
 COPY . .
 
 # 6. Expose backend port
-EXPOSE 3000
+EXPOSE 3005
 
 # 7. Start the backend
 CMD ["pm2-runtime", "index.js"]
