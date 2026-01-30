@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 const path = require("path");
 const loadEnvVariables = require("./utils/envHelper");
 const errorHandler = require("./middlewares/errorHandler.middleware");
@@ -15,7 +15,7 @@ const createServer = () => {
 
   // Body parsing Middleware
   app.use(express.json({ limit: "50mb" }));
-  app.use(bodyParser.json());
+  // app.use(bodyParser.json());
   app.use(express.urlencoded({ extended: true, limit: "50mb" }));
   app.use(cors());
 
