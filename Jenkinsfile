@@ -5,7 +5,7 @@ pipeline{
   }
 
   tools {
-        sonarQubeScanner 'SonarScanner'
+        sonarScanner 'SonarScanner'
     }
 
   stages{
