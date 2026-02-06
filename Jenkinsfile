@@ -33,11 +33,7 @@ pipeline{
         }
     }
 }
-
-
-  
-
-    
+     
   stage('Build') {
             steps { 
                 withCredentials([string(credentialsId: 'dockerhub-token', variable: 'docker_hub')]) {
