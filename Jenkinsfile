@@ -18,18 +18,23 @@ pipeline{
 
 
   stage('SonarQube Analysis') {
-            steps {
-                withSonarQubeEnv(installationName: 'SonarQube-Server', credentialsId: 'sonar-token') {
-                    sh '''
-                        sonar-scanner \
-                        -Dsonar.projectKey=project-new-backend \
-                        -Dsonar.projectName=project-new-backend \
-                        -Dsonar.sources=. \
-                        -Dsonar.exclusions=**/node_modules/**,**/test/**
-                    '''
-                }
+    steps {
+        script {
+            // 1. Get the path to the scanner you named 'sonarscanner'
+            def scannerHome = tool 'sonarscanner' 
+            
+            // 2. Wrap the execution with the SonarQube environment
+            withSonarQubeEnv(installationName: 'SonarQube-Server', credentialsId: 'sonar-token') {
+                // 3. Use the absolute path to the scanner executable
+                sh "${scannerHome}/bin/sonar-scanner \
+                    -Dsonar.projectKey=project-new-backend \
+                    -Dsonar.projectName=project-new-backend \
+                    -Dsonar.sources=. \
+                    -Dsonar.exclusions=**/node_modules/**,**/test/**"
             }
         }
+    }
+}
 
 
   stage('Quality Gate') {
