@@ -5,7 +5,8 @@ pipeline{
   }
 
   tools {
-        sonarScanner 'SonarScanner'
+        // This name must match the name in Global Tool Configuration
+        sonarScanner 'sonarscanner' 
     }
 
   stages{
