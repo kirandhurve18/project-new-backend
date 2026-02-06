@@ -18,7 +18,7 @@ pipeline{
 
   stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('SonarQube') {
+                withSonarQubeEnv(installationName: 'SonarQube-Server', credentialsId: 'sonar-token') {
                     sh '''
                         sonar-scanner \
                         -Dsonar.projectKey=project-new-backend \
