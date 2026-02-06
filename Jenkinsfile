@@ -6,7 +6,7 @@ pipeline{
 
   tools {
         // This name must match the name in Global Tool Configuration
-        sonarScanner 'sonarscanner' 
+        'hudson.plugins.sonar.SonarRunnerInstallation' 'sonarscanner'
     }
 
   stages{
@@ -19,7 +19,7 @@ pipeline{
 
   stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv(installationName: 'SonarQube-Server', credentialsId: 'sonar-token') {
+                withSonarQubeEnv(installationName: 'Your-Server-Name', credentialsId: 'sonar-token') {
                     sh '''
                         sonar-scanner \
                         -Dsonar.projectKey=project-new-backend \
