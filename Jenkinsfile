@@ -4,6 +4,10 @@ pipeline{
         pollSCM('* * * * *') 
   }
 
+  tools {
+        sonarQubeScanner 'SonarScanner'
+    }
+
   stages{
     stage("pull"){
       steps{
@@ -11,6 +15,31 @@ pipeline{
          }
       }
 
+
+  stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv(credentialsId: 'sonar-token') {
+                    sh '''
+                        sonar-scanner \
+                        -Dsonar.projectKey=project-new-backend \
+                        -Dsonar.projectName=project-new-backend \
+                        -Dsonar.sources=. \
+                        -Dsonar.exclusions=**/node_modules/**,**/test/**
+                    '''
+                }
+            }
+        }
+
+
+  stage('Quality Gate') {
+            steps {
+                timeout(time: 5, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+                }
+            }
+        }
+
+    
   stage('Build') {
             steps { 
                 withCredentials([string(credentialsId: 'dockerhub-token', variable: 'docker_hub')]) {
