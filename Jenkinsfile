@@ -1,8 +1,6 @@
 pipeline{
   agent any 
-  triggers {
-        pollSCM('* * * * *') 
-  }
+  
 
   tools {
         // This name must match the name in Global Tool Configuration
