@@ -61,6 +61,7 @@ pipeline{
                 sed -i "s/project-repository:1/project-repository:${BUILD_NUMBER}/g" K8/deployment.yaml
                 kubectl apply -f K8/deployment.yaml
                 kubectl apply -f K8/service.yaml
+                kubectl apply -f K8/service.yaml
                 kubectl apply -f K8/app-ingress.yaml 
                 '''
         }
