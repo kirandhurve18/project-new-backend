@@ -19,5 +19,8 @@ spec:
         ports:
         - containerPort: 3005  # container Port 
         env:
-        - name: MONGO_URI
-          value: "mongodb+srv://admin:Nagesh7997@cluster0.45avcop.mongodb.net/hrms_staging?retryWrites=true&w=majority&appName=Cluster0"
+          - name: MONGO_URI
+            valueFrom:
+              secretKeyRef:
+                name: mongodb-secret
+                key: MONGO_URI
